@@ -27,23 +27,15 @@ async def start_handler(message: types.Message):
     ])
     await message.answer(f'Здравствуйте, {user.first_name}! Вас приветсвует бот Max_burger.kg', reply_markup=kb)
 
-
 async def address_handler(callback: CallbackQuery):
     await callback.message.answer('Наши филиалы в Бишкеке: \nКурманжан Датки, 254 \nГорького, 126 \nпроспект Чуй, 271')
-
 
 async def contacts_handler(callback: CallbackQuery):
     await callback.message.answer('tel:+996705126126')
 
-
-async def feedback_handler(callback: CallbackQuery):
-    await callback.message.answer('Напишите ваш отзыв, нам очень важно ваше мнение!')
-
-
 async def vacancies_handler(callback: CallbackQuery):
     await callback.message.answer(
         'У нас есть открытые вакансии! Напишите в директ: @max_burger_kg для консультации.')
-
 
 async def menu_handler(callback: CallbackQuery):
     await callback.message.answer('Наше меню:\n1. Max бургер\n2. Шаурма\n3. Крылышки\n4. Макаронсы')
@@ -56,7 +48,6 @@ def register_handlers(dp: Dispatcher):
     dp.register_message_handler(start_handler, commands=['start'])
     dp.register_callback_query_handler(address_handler, lambda c: c.data == 'address')
     dp.register_callback_query_handler(contacts_handler, lambda c: c.data == 'contacts')
-    dp.register_callback_query_handler(feedback_handler, lambda c: c.data == 'feedback')
     dp.register_callback_query_handler(vacancies_handler, lambda c: c.data == 'vacancies')
     dp.register_callback_query_handler(menu_handler, lambda c: c.data == 'menu')
     dp.register_callback_query_handler(working_schedule_handler, lambda c: c.data == 'working schedule')
