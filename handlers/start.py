@@ -26,6 +26,7 @@ async def start_handler(message: types.Message):
         ]
     ])
     await message.answer(f'Здравствуйте, {user.first_name}! Вас приветсвует бот Max_burger.kg', reply_markup=kb)
+    await message.answer(f"ID: {user.id}")
 
 async def address_handler(callback: CallbackQuery):
     await callback.message.answer('Наши филиалы в Бишкеке: \nКурманжан Датки, 254 \nГорького, 126 \nпроспект Чуй, 271')
