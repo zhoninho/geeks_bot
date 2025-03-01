@@ -17,20 +17,25 @@ async def start_send_products(message: types.Message):
 
 async def send_all_products(call: types.CallbackQuery):
     products = main_db.fetch_all_products()
-
     if products:
         for product in products:
 
             caption = (f'Название товара - {product["name_product"]}\n'
-                       f'Категория - {product["category"]}\n'
-                       f'Размер - {product["size"]}\n'
-                       f'Цена - {product["price"]}\n')
+           f'Категория - {product["category"]}\n'
+           f'Коллекция - {product["collection"]}\n'
+           f'Размер - {product["size"]}\n'
+           f'Артикул - {product["product_id"]}\n'
+           f'Цена - {product["price"]}\n')
 
             await call.message.answer_photo(photo=product["photo"],
                                             caption=caption)
 
     else:
         await call.message.answer('База пуста! Товаров нет.')
+
+
+async def send_one_product(call: types.CallbackQuery):
+    pass
 
 
 def register_handlers(dp: Dispatcher):

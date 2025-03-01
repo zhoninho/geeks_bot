@@ -1,6 +1,6 @@
 from aiogram import executor
 from bot_config import dp, database, ADMINS, bot
-from handlers import start, other_message, review_dialog, store_fsm, send_products
+from handlers import start, other_message, store_fsm, send_products, edit_product
 
 from db.main_db import create_tables
 
@@ -17,9 +17,9 @@ async def on_shutdown(_):
                                text='Бот выключен!')
 
 start.register_handlers(dp)
-review_dialog.register_handlers(dp)
 store_fsm.register_handlers(dp)
 send_products.register_handlers(dp)
+edit_product.register_handlers(dp)
 other_message.register_handlers(dp)
 database.create_tables()
 

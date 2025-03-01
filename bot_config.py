@@ -9,6 +9,6 @@ bot = Bot(token=token)
 storage = MemoryStorage()
 database = Database("database.sqlite3")
 dp = Dispatcher(bot, storage=storage)
-ADMINS = ['1595489627']
+ADMINS = [1595489627]
 
 names = ("Манас", "Жанат", "Аяна", "Дима", "Артем")

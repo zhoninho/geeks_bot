@@ -23,8 +23,8 @@ CREATE_TABLE_store_details = """
 CREATE_TABLE_collection = """
     CREATE TABLE IF NOT EXISTS collection_products (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    product_id TEXT ,
-    collection TEXT,
+    product_id TEXT,
+    collection TEXT
     )
 """
 
